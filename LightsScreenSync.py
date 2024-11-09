@@ -19,7 +19,7 @@ from PIL import ImageGrab, ImageStat
 import serial
 
 l = []
-arduino = serial.Serial(port = '/dev/cu.usbmodem1201', baudrate=115200, timeout=.1)
+arduino = serial.Serial(port = '/dev/cu.usbserial-0001', baudrate=115200, timeout=.1)
 
 while True:
     wtf = capture_screenshot()

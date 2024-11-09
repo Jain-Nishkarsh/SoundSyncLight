@@ -4,13 +4,13 @@ String str;
 void setup() {
   Serial.begin(115200);
   Serial.setTimeout(1);
-  pinMode(11, OUTPUT);
-  pinMode(10, OUTPUT);
-  pinMode(9, OUTPUT);
+  pinMode(25, OUTPUT);
+  pinMode(26, OUTPUT);
+  pinMode(27, OUTPUT);
 }
 int arr[3];
 
-int split(String inarr){
+void split(String inarr){
   String substr;
   int count = 0;
   for (int i = 0; i < inarr.length(); i++){
@@ -29,14 +29,21 @@ int split(String inarr){
 }
 
 void loop() {
-  while (!Serial.available());
-  delay(5);
-  str = Serial.readStringUntil('\n');
-  split(str);
+  if (Serial.available() > 0) {
+    delay(5);
+    str = Serial.readStringUntil('\n');
+    split(str);
 
-  analogWrite(9, arr[0]);
-  analogWrite(10, arr[1]);
-  analogWrite(11, arr[2]);
+    Serial.println(str);
+
+    analogWrite(26, arr[0]);
+    analogWrite(25, arr[1]);
+    analogWrite(27, arr[2]);
+  }
+
+  // there is a cat
+  // it goes meow
+  // then it gib pussy
 
   // for (int i = 0; i < 256; i++){
   //   analogWrite(9, i);
