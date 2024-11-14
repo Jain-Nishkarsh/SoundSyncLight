@@ -1,3 +1,5 @@
+#include <Arduino.h>
+
 int x;
 String str;
 

@@ -19,7 +19,10 @@ from PIL import ImageGrab, ImageStat
 import serial
 
 l = []
-arduino = serial.Serial(port = '/dev/cu.usbserial-0001', baudrate=115200, timeout=.1)
+
+PORT = "/dev/cu.usbserial-0001"
+# PORT = "/dev/cu.ESP32_Bluetooth"
+arduino = serial.Serial(port = PORT, baudrate=115200, timeout=.1)
 
 while True:
     wtf = capture_screenshot()
